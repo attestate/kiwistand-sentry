@@ -1,0 +1,2 @@
+0 * * * * cd /root/sentry && npm run dev
+
