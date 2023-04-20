@@ -68,11 +68,12 @@ async function main() {
       title: url.title,
       url: url.url,
     }))
-    .filter((url) => url.score > 1 && url.url && url.title)
+    .filter((url) => url.score < 10 && url.url && url.title)
     .slice(0, 30);
 
   const titlesAndUrls = [];
   let filtered = await evaluate(urls);
+  console.log("filtered", filtered);
   const wallet = await walletFromKeystore(resolve("key"), process.env.PASSWORD);
   console.log(wallet);
   filtered = filtered.slice(0, 3);
