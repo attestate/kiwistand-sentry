@@ -75,8 +75,7 @@ async function main() {
   let filtered = await evaluate(urls);
   console.log("filtered", filtered);
   const wallet = await walletFromKeystore(resolve("key"), process.env.PASSWORD);
-  console.log(wallet);
-  filtered = filtered.slice(0, 3);
+  filtered = filtered.slice(0, 1);
   console.log("Starting to submit stories", filtered);
   for await (const story of filtered) {
     await sendStory(story.title, story.url, wallet);
